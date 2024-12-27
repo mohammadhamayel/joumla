@@ -59,7 +59,6 @@ class FrontendController extends FrontBaseController
 
     public function index(Request $request)
     {
-
         $gs = $this->gs;
         $data['ps'] = $this->ps;
         if (!empty($request->reff)) {
@@ -751,6 +750,7 @@ class FrontendController extends FrontBaseController
 
     public function finalize()
     {
+        dd('finalize');
         $actual_path = str_replace('project', '', base_path());
         $dir = $actual_path . 'install';
         $this->deleteDir($dir);

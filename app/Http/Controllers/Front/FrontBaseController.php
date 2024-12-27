@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use InvalidArgumentException;
-use Markury\MarkuryPost;
+// use Markury\MarkuryPost;
 
 class FrontBaseController extends Controller
 {
@@ -21,9 +21,7 @@ class FrontBaseController extends Controller
 
     public function __construct()
     {
-        $this->auth_guests();
         // Set Global GeneralSettings
-
         $this->gs = cache()->remember('generalsettings', now()->addDay(), function () {
             return DB::table('generalsettings')->first();
         });
@@ -64,6 +62,7 @@ class FrontBaseController extends Controller
         // Set Counter
 
         if (isset($_SERVER['HTTP_REFERER'])) {
+
             $referral = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST);
             if ($referral != $_SERVER['SERVER_NAME']) {
 
@@ -93,6 +92,7 @@ class FrontBaseController extends Controller
                 }
             }
         } else {
+
             $brwsr = Counter::where('type', 'browser')->where('referral', $this->getOS());
             if ($brwsr->count() > 0) {
                 $brwsr = $brwsr->first();

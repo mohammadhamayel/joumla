@@ -52,7 +52,7 @@ $app->singleton(
 |
  */
 
-$app->useEnvironmentPath(realpath(__DIR__ . '/../vendor/markury/src/'));
+// $app->useEnvironmentPath(realpath(__DIR__ . '/../vendor/markury/src/'));
 
 $path = base_path();
 $modifiedPath = str_replace("/project", "", $path);

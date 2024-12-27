@@ -127,6 +127,7 @@ class DashboardController extends AdminBaseController
 
     public function clear_bkup()
     {
+        dd('clear_bkup');
         $destination = public_path() . '/install';
         $bkuplink = "";
         $chk = file_get_contents('backup.txt');
@@ -211,6 +212,7 @@ class DashboardController extends AdminBaseController
 
     public function movescript()
     {
+        dd('movescript');
         ini_set('max_execution_time', 3000);
 
         $destination = public_path() . '/install';

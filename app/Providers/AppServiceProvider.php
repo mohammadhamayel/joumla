@@ -22,7 +22,6 @@ class AppServiceProvider extends ServiceProvider
         Cache::flush();
         Paginator::useBootstrap();
         view()->composer('*', function ($settings) {
-
             try {
                 $settings->with('gs', cache()->remember('generalsettings', now()->addDay(), function () {
                     return DB::table('generalsettings')->first();
@@ -58,6 +57,7 @@ class AppServiceProvider extends ServiceProvider
                 $settings->with('footer_blogs', DB::table('blogs')->orderby('id', 'desc')->limit(3)->get());
             } catch (\Exception $e) {
                 $actual_path = str_replace('project', '', base_path());
+                dd(1111 . ' --- ' .$e->getMessage());
                 if (is_dir($actual_path . '/install')) {
                     echo '<meta http-equiv="refresh" content="0; url=' . url('/install') . '" />';
                 }
