@@ -399,7 +399,7 @@ Route::prefix('admin')->group(function () {
 
         // WITHDRAW SECTION
 
-        Route::get('/riders/withdraws/datatables', 'Admin\RiderController@withdrawdatatables')->name('admin-withdraw-datatables'); //JSON REQUEST
+        // Route::get('/riders/withdraws/datatables', 'Admin\RiderController@withdrawdatatables')->name('admin-withdraw-datatables'); //JSON REQUEST
         Route::get('/riders/withdraws', 'Admin\RiderController@withdraws')->name('admin-rider-withdraw-index');
         Route::get('/rider/withdraw/{id}/show', 'Admin\RiderController@withdrawdetails')->name('admin-rider-withdraw-show');
         Route::get('/riders/withdraws/accept/{id}', 'Admin\RiderController@accept')->name('admin-rider-withdraw-accept');
@@ -888,7 +888,7 @@ Route::prefix('admin')->group(function () {
     // STATUS SECTION ENDS
 
     // FEATURE SECTION
-    Route::get('/products/feature/{id}', 'Admin\ProductController@feature')->name('admin-prod-feature');
+    // Route::get('/products/feature/{id}', 'Admin\ProductController@feature')->name('admin-prod-feature');
     Route::post('/products/feature/{id}', 'Admin\ProductController@featuresubmit')->name('admin-prod-feature');
     // FEATURE SECTION ENDS
 
@@ -1215,7 +1215,7 @@ Route::group(['middleware' => 'maintenance'], function () {
         // User Wishlist Ends
 
         // User Review
-        Route::post('/review/submit', 'User\UserController@reviewsubmit')->name('front.review.submit');
+        // Route::post('/review/submit', 'User\UserController@reviewsubmit')->name('front.review.submit');
         // User Review Ends
 
         // User Orders
@@ -1666,7 +1666,7 @@ Route::group(['middleware' => 'maintenance'], function () {
     Route::get('/checkout/payment/{slug1}/{slug2}', 'Front\CheckoutController@loadpayment')->name('front.load.payment');
 
     Route::post('/api/flutter/submit', 'Payment\FlutterWaveController@store')->name('api.flutter.submit');
-    Route::post('/flutter/notify', 'Payment\FlutterWaveController@notify')->name('api.flutter.notify');
+    // Route::post('/flutter/notify', 'Payment\FlutterWaveController@notify')->name('api.flutter.notify');
 
     Route::get('/payment/successfull/{get}', 'Front\FrontendController@success')->name('front.payment.success');
 
@@ -1748,7 +1748,7 @@ Route::group(['middleware' => 'maintenance'], function () {
 
     // VENDOR AND PAGE SECTION
     Route::get('/country/tax/check', 'Front\CartController@country_tax');
-    Route::get('/{slug}', 'Front\VendorController@index')->name('front.vendor');
+    // Route::get('/{slug}', 'Front\VendorController@index')->name('front.vendor');
 
     // VENDOR AND PAGE SECTION ENDS
 
